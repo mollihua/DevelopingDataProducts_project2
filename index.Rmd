@@ -1,0 +1,75 @@
+---
+title       : European Currency Conversion
+subtitle    : Developing Data Products Course Presentation
+author      : Mo Chen
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : [shiny,mathjax]   # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+output: html_document
+---
+
+## Introduction
+
+This shiny project is designed for online European currency conversion.
+  
+There are 11 European currencies:  
+-Austrian Schilling ATS  
+-Belgian Franc BEF  
+-German Mark DEM  
+-Spanish Peseta ESP   
+-Finnish Markka FIM  
+-French Franc FRF  
+-Irish Punt IEP  
+-Italian Lira ITL   
+-Luxembourg Franc LUF   
+-Dutch Guilder NLG  
+-Portuguese Escudo PTE   
+-Euro  
+  
+These conversion rates were fixed by the European Union on December 31, 1998.
+
+--- 
+
+## The dataset
+
+```{r results='asis',comment=NA}
+library(datasets)
+data(euro)
+```
+
+Here use rCharts to plot the data. The value refers to the value of 1 euro in that currency.  
+
+```{r results='asis',comment=NA,echo=FALSE}
+library(rCharts)
+library(knitr)
+# Get the values
+euro1 <- as.data.frame(euro)
+# Get the currencies
+euro2 <- as.data.frame(names(euro))
+# Combine currencies and values
+euro3 <- cbind(euro1, euro2)
+names(euro3) <- c("Value", "Currency")
+n1 <- rPlot(Value~Currency,data=euro3,type='point',size=list(const=3))
+n1$set(width = 600, height = 400)
+n1$show(cdn = TRUE)
+```
+
+--- 
+
+## The little math in currency conversion from A to B
+1 currency A is equivalent to $$1\times \frac{Value(B)}{Value(A)}$$ of currency B.
+
+---
+
+## The shiny app 
+Try the shiny app for European currency conversion
+
+https://mollihua.shinyapps.io/project_DevelopingDataProducts/
+
+Please email Mo Chen (mochenserey@gmail.com) for any questions.Thank you.
+
+
