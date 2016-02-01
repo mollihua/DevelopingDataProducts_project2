@@ -42,9 +42,12 @@ library(datasets)
 data(euro)
 ```
 
-Here use rCharts to plot the data. The value refers to the value of 1 euro in that currency.  
+Here use rCharts to plot the data. The value refers to the value of 1 euro in that currency. Notice this interactive figure can only display locally but not on RPub.  
 
-<iframe src=' assets/fig/unnamed-chunk-2-1.html ' scrolling='no' frameBorder='0' seamless class='rChart polycharts ' id=iframe- chart299281492bc ></iframe> <style>iframe.rChart{ width: 100%; height: 400px;}</style>
+
+
+You can also view the figure in a static state like this.  
+![plot of chunk unnamed-chunk-3](assets/fig/unnamed-chunk-3-1.png)
 
 --- 
 
@@ -56,7 +59,10 @@ Here use rCharts to plot the data. The value refers to the value of 1 euro in th
 ## The shiny app 
 Try the shiny app for European currency conversion
 
-https://mollihua.shinyapps.io/project_DevelopingDataProducts/
+https://mollihua.shinyapps.io/project_DevelopingDataProducts/  
+
+The R markdown file is at:  
+https://github.com/mollihua/DevelopingDataProducts_project2/blob/master/index.Rmd
 
 Please email Mo Chen (mochenserey@gmail.com) for any questions.Thank you.
 

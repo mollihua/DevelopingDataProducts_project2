@@ -41,9 +41,9 @@ library(datasets)
 data(euro)
 ```
 
-Here use rCharts to plot the data. The value refers to the value of 1 euro in that currency.  
+Here use rCharts to plot the data. The value refers to the value of 1 euro in that currency. Notice this interactive figure can only display locally but not on RPub.  
 
-```{r results='asis',comment=NA,echo=FALSE}
+```{r results='hide',comment=NA,echo=FALSE}
 library(rCharts)
 library(knitr)
 # Get the values
@@ -56,6 +56,14 @@ names(euro3) <- c("Value", "Currency")
 n1 <- rPlot(Value~Currency,data=euro3,type='point',size=list(const=3))
 n1$set(width = 600, height = 400)
 n1$show(cdn = TRUE)
+n1$save('figure1')
+cat('<iframe src="figure1.html" width=100%, height=600></iframe>')
+```
+
+You can also view the figure in a static state like this.  
+```{r echo=FALSE, comment=NA, fig.width = 10, fig.height = 5}
+bplt <- barplot(euro)
+text(x=bplt,y=euro+50,labels=as.character(euro),xpd=TRUE)
 ```
 
 --- 
@@ -68,7 +76,10 @@ n1$show(cdn = TRUE)
 ## The shiny app 
 Try the shiny app for European currency conversion
 
-https://mollihua.shinyapps.io/project_DevelopingDataProducts/
+https://mollihua.shinyapps.io/project_DevelopingDataProducts/  
+
+The R markdown file is at:  
+https://github.com/mollihua/DevelopingDataProducts_project2/blob/master/index.Rmd
 
 Please email Mo Chen (mochenserey@gmail.com) for any questions.Thank you.
 
